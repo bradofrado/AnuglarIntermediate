@@ -7,11 +7,14 @@ import {
   CreateEventComponent,
   EventDetailsComponent,
   EventThumbnailComponent,
-  EventsListComponent
+  EventsListComponent,
+  CreateSessionComponent,
+  SessionListComponent
 } from './events/index'
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { appRoutes } from './routes';
     EventDetailsComponent,
     CreateEventComponent,
     NavbarComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent,
+    SessionListComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
