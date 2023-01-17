@@ -15,11 +15,11 @@ import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pipe';
-import { Toastr, TOASTR_TOKEN } from './common/toastr.service';
+import { Toastr, TOASTR_TOKEN, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
 
 declare let toastr: Toastr;
+let jquery = (window as any)['$'];
 
 @NgModule({
   declarations: [
@@ -33,7 +33,9 @@ declare let toastr: Toastr;
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ declare let toastr: Toastr;
   ],
   providers: [
     {provide: 'canDeactiveCreateEvent', useValue: checkDirtyState},
-    { provide: TOASTR_TOKEN, useValue: toastr }
+    { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jquery }
   ],
   bootstrap: [EventsAppComponent]
 })
