@@ -1,4 +1,5 @@
 <div class="well hoverwell thumbnail">
+  <h5>{{event?.name}}</h5>
   <div>Date: {{event?.date}} </div>
   <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">
     Time: {{event?.time}}
