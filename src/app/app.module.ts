@@ -16,6 +16,10 @@ import { NavbarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { DurationPipe } from './events/shared/duration.pipe';
+import { Toastr, TOASTR_TOKEN } from './common/toastr.service';
+
+declare let toastr: Toastr;
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    {provide: 'canDeactiveCreateEvent', useValue: checkDirtyState}
+    {provide: 'canDeactiveCreateEvent', useValue: checkDirtyState},
+    { provide: TOASTR_TOKEN, useValue: toastr }
   ],
   bootstrap: [EventsAppComponent]
 })
