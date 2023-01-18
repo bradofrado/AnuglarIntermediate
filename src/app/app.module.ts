@@ -9,7 +9,9 @@ import {
   EventThumbnailComponent,
   EventsListComponent,
   CreateSessionComponent,
-  SessionListComponent
+  SessionListComponent,
+  UpvoteComponent,
+  LocationValidator
 } from './events/index'
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
@@ -35,7 +37,9 @@ let jquery = (window as any)['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
