@@ -11,6 +11,8 @@ export class SessionListComponent implements OnChanges {
   @Input() sessions: ISession[] | undefined;
   @Input() filterBy!: string;
   @Input() sortBy!: string;
+	@Input() eventId!: number;
+
   visibleSessions: ISession[] = [];
 
   constructor(public auth: AuthService, private voterService: VoterService) {}
@@ -25,9 +27,9 @@ export class SessionListComponent implements OnChanges {
 
   toggleVote(session: ISession) {
     if (this.userHasVoted(session)) {
-      this.voterService.deleteVoter(session, this.auth.currentUser.username);
+      this.voterService.deleteVoter(this.eventId, session, this.auth.currentUser.username);
     } else {
-      this.voterService.addVoter(session, this.auth.currentUser.username); 
+      this.voterService.addVoter(this.eventId, session, this.auth.currentUser.username); 
     }
     if (this.sortBy === 'votes') {
       this.visibleSessions.sort(sortByVotesDesc);
