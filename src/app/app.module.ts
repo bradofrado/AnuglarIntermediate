@@ -22,7 +22,7 @@ import { DurationPipe } from './events/shared/duration.pipe';
 import { Toastr, TOASTR_TOKEN, JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent, ModalTriggerDirective } from './common/index';
 
 declare let toastr: Toastr;
-let jquery = (window as any)['$'];
+const jquery = (window as any)['$'];
 
 @NgModule({
   declarations: [

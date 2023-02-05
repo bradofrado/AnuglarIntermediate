@@ -12,8 +12,8 @@ export class AuthService {
 	constructor(private http: HttpClient) {}
 
   loginUser(username: string, password: string) {
-		let loginInfo = { username: username, password: password}
-		let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+		const loginInfo = { username: username, password: password}
+		const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
 		return this.http.post('/api/login', loginInfo, options)
 			.pipe(tap((data: any) => {
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
 	checkAuthenticationStatus() {
-		let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+		const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
 		this.http.get('/api/currentIdentity', options)
 			// .pipe(tap(data => {
 			// 	if (data instanceof Object) {
@@ -43,7 +43,7 @@ export class AuthService {
 		this.currentUser.firstname = firstname;
 		this.currentUser.lastname = lastname;
 
-		let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+		const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
 
 		return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options)
   }
@@ -51,7 +51,7 @@ export class AuthService {
 	logout() {
 		//this.currentUser = undefined;
 
-		let options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+		const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
 		return this.http.post('/api/logout', {}, options);
 	}
 }

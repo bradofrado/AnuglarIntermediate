@@ -26,7 +26,7 @@ export class VoterService {
 			.subscribe();
   }
 
-  userHasVoted(session: ISession, voterName: string) {
+  userHasVoted(session: ISession, voterName: string): boolean {
     return session.voters.some(voter => voter === voterName);
   }
 

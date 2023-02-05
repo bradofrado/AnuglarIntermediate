@@ -13,7 +13,7 @@ import { AuthService } from "../user/auth.service";
   `]
 })
 export class NavbarComponent {
-  searchTerm: string = "";
+  searchTerm = "";
   foundSessions: any[] = [];
 
   constructor(public auth: AuthService, private eventService: EventService) {}
