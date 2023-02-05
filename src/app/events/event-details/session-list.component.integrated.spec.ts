@@ -1,4 +1,4 @@
-import { DebugElement } from "@angular/core"
+import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core"
 import { AuthService } from "src/app/user/auth.service"
 import { SessionListComponent } from "./session-list.component"
 import { VoterService } from "./voter.service"
@@ -24,12 +24,15 @@ describe('SessionListComponent', () => {
 			declarations: [
 				SessionListComponent,
 				DurationPipe,
-				CollapsibleWellComponent,
-				UpvoteComponent
+				// CollapsibleWellComponent,
+				// UpvoteComponent
 			],
 			providers: [
 				{ provide: AuthService, useValue: mockAuthService},
 				{ provide: VoterService, useValue: mockVoterService}
+			],
+			schemas: [
+				NO_ERRORS_SCHEMA
 			]
 		});
 		fixture = TestBed.createComponent(SessionListComponent);
